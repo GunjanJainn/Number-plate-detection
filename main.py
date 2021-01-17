@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 import pytesseract as pyt
 
-#Adding tesseract to path
+#Adding tesseract to path ( Local Path of tesseract.exe)
 pyt.pytesseract.tesseract_cmd= r"E:\Pytesseract\tesseract.exe"
 
 #Cascade classifier
@@ -36,11 +36,10 @@ def Read(image_name):
         print(text)
 
         #Putting the text recieved on the image
-        img= cv2.putText(img, text, (x+b, y+a), 
-                     cv2.FONT_HERSHEY_SIMPLEX, 2, (255,0,50), 2)
+        img= cv2.putText(img, text, (x+b, y+a), cv2.FONT_HERSHEY_SIMPLEX, 2, (255,0,50), 2)
 
 
-
+#Main Program starts here
 img= cv2.imread("image4.jpg")
 Read(img)
 cv2.imshow("Car", img)
